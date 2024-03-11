@@ -110,15 +110,52 @@ h1 {
 }
 
 .btn-voltar {
-  background-color: #00B5CC; /* Cor de fundo */
-  color: #fff; /* Cor do texto */
-  padding: 10px 20px; /* Espaçamento interno */
-  border: none; /* Remova a borda */
-  border-radius: 5px; /* Arredonde as bordas */
-  cursor: pointer; /* Altere o cursor para indicar que é clicável */
-  transition: background-color 0.3s; /* Adicione uma transição suave */
+  background-color: #00B5CC;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-voltar:hover {
-  background-color: #008EA3; /* Altere a cor de fundo ao passar o mouse */
+  background-color: #008EA3;
+}
+
+/* Adicionando responsividade */
+@media screen and (max-width: 768px) {
+  .container-inicio {
+    padding: 20px;
+  }
+
+  .character-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .character-image {
+    height: 150px;
+  }
+
+  .btn-fav {
+    font-size: 30px;
+    top: 0;
+    right: 0;
+    padding: 3px 8px;
+  }
+
+  .container-um {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .container-dois {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .btn-voltar {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
 }

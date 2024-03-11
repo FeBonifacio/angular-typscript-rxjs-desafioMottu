@@ -2,17 +2,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Para garantir que o conteúdo comece no topo */
+  justify-content: flex-start;
   background-color: #1F1F1F;
-  min-height: 100vh; /* Para garantir que o corpo da página tenha no mínimo 100% da altura da viewport */
+  min-height: 100vh;
   margin: 0;
 }
 
 .character {
   display: flex;
-  flex-wrap: wrap; /* Adiciona quebra de linha para os itens */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  align-items: flex-start; /* Alinha os itens ao topo */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .container-inicio {
@@ -51,7 +51,7 @@ h1 {
 }
 
 .character-item {
-  position: relative; /* Garante que o posicionamento relativo seja usado como referência */
+  position: relative;
   margin: 40px;
   width: 220px;
   height: 298px;
@@ -63,12 +63,12 @@ h1 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  position: relative; /* Adiciona o posicionamento relativo */
+  position: relative;
 }
 
 .character-image {
-  width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner */
-  height: auto; /* Mantém a proporção da imagem */
+  width: 100%;
+  height: auto;
   border-radius: 12px 12px 0 0;
 }
 .btn-fav:hover {
@@ -122,5 +122,45 @@ h1 {
 }
 
 .btn-fav.favorite {
-  color: black; /* Cor do ícone quando está nos favoritos */
+  color: black;
+}
+
+
+/* Adicionando responsividade */
+@media screen and (max-width: 768px) {
+  .container-inicio {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .character-item {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .btn-fav {
+    font-size: 30px;
+    top: 0;
+    right: 0;
+    padding: 3px 8px;
+  }
+
+  .naoExiste {
+    margin: 20px;
+  }
+
+  .nao-um {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .nao-dois {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
