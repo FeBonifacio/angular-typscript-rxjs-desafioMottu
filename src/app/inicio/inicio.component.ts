@@ -105,4 +105,5 @@ export class InicioComponent implements OnInit {
       this.contadorFavoritos = this.favoritos.length; // Atualizar o contador de favoritos
     }
   }
+
 }

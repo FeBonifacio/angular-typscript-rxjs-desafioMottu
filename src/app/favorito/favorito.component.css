@@ -2,18 +2,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #1F1F1F;
-}
-
-.character-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0;
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .container-inicio h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   color: #00B5CC;
   -webkit-text-stroke-width: 2px;
@@ -21,18 +21,62 @@ body {
   font-family: 'Creepster', sans-serif;
 }
 
+.container-nao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-um {
+  font-family: 'Poppins', sans-serif;
+  color: #fff; /* Cor do texto alterada para branco */
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.container-dois {
+  font-family: 'Poppins', sans-serif;
+  color: gray; /* Cor do texto alterada para cinza */
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 20px;
+}
+
+.btn-voltar {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgb(9, 8, 8);
+  background-color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas com largura igual */
+  gap: 20px; /* Espaçamento entre os cards */
+  width: 100%;
+
+}
+
 .character {
   width: auto;
   height: auto;
-  margin: 20px;
   background: #0A0A0A;
   border-radius: 12px;
   overflow: hidden;
 }
 
 .character-image {
-  width: 224px;
-  height: 200px;
+  width: 100%; /* Garante que a imagem ocupe todo o espaço do card */
+  height: 200px; /* Altura fixa para os cards */
   border-radius: 12px 12px 0 0;
 }
 
