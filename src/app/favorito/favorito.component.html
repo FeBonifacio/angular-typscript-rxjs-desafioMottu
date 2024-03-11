@@ -14,17 +14,22 @@
     <div class="character-list" *ngIf="favoritos.length > 0">
       <div class="character" *ngFor="let character of favoritos">
         <img class="character-image" [src]="character.image" alt="{{ character.image }}" />
+        <button class="btn-fav" [class.favorite]="isFavorito(character)" (click)="toggleFavorite(character)">
+          &#x2665;
+        </button>
         <div class="character-info">
           <p class="character-name">{{ character.name }}</p>
           <p class="character-species">{{ character.species}}</p>
         </div>
       </div>
     </div>
-    <div class="container-nao" *ngIf="favoritos.length === 0"> <!-- Adicionando a condição para mostrar a div apenas quando não houver favoritos -->
+
+    <div class="container-nao" *ngIf="favoritos.length === 0">
       <p class="container-um">Parece que você ainda não tem favoritos.</p>
       <p class="container-dois">Volte à página inicial e escolha os melhores para você.</p>
       <button class="btn-voltar" (click)="voltarInicio()">Voltar ao inicial</button>
     </div>
   </div>
+
 </body>
 </html>

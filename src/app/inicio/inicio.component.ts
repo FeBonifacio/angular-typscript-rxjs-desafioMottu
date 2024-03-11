@@ -88,6 +88,14 @@ export class InicioComponent implements OnInit {
     return this.favoritos.includes(character);
   }
 
+  toggleFavorite(character: Character) {
+    if (this.isFavorito(character)) {
+      this.removeFavorito(character);
+    } else {
+      this.adicionarFav(character);
+    }
+  }
+
   telaFavoritos() {
     this.router.navigate(['/favorito']); // Navegar para a tela de favoritos
   }

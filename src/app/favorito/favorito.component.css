@@ -5,68 +5,46 @@ body {
   justify-content: center;
   background-color: #1F1F1F;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-.container-inicio h1 {
+.container-inicio {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  gap: 20px;
+  position: relative; /* Adicionando posição relativa para o container */
+}
+
+h1 {
+  margin: 0;
   color: #00B5CC;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #B2DF28;
   font-family: 'Creepster', sans-serif;
 }
 
-.container-nao {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.container-um {
-  font-family: 'Poppins', sans-serif;
-  color: #fff; /* Cor do texto alterada para branco */
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 10px;
-}
-
-.container-dois {
-  font-family: 'Poppins', sans-serif;
-  color: gray; /* Cor do texto alterada para cinza */
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  margin-bottom: 20px;
-}
-
-.btn-voltar {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: rgb(9, 8, 8);
-  background-color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .character-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas com largura igual */
-  gap: 20px; /* Espaçamento entre os cards */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100%;
+  overflow: auto;
+}
 
+.container-nao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: auto;
 }
 
 .character {
+  position: relative; /* Adicionando posição relativa para o card */
   width: auto;
   height: auto;
   background: #0A0A0A;
@@ -75,8 +53,8 @@ body {
 }
 
 .character-image {
-  width: 100%; /* Garante que a imagem ocupe todo o espaço do card */
-  height: 200px; /* Altura fixa para os cards */
+  width: 100%;
+  height: 200px;
   border-radius: 12px 12px 0 0;
 }
 
@@ -94,4 +72,53 @@ body {
 .character-species {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+}
+
+.btn-fav {
+  position: absolute; /* Alterando para posição absoluta */
+  top: 5px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.btn-fav.favorite {
+  color: black; /* Cor do ícone quando está nos favoritos */
+}
+
+.container-um {
+  color: #fff;
+  font-size: 'Poppins, sans-serif';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -2%;
+  align-items: center;
+}
+
+.container-dois {
+  color: gray;
+  font-size: 'Poppins, sans-serif';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  align-items: center;
+}
+
+.btn-voltar {
+  background-color: #00B5CC; /* Cor de fundo */
+  color: #fff; /* Cor do texto */
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Remova a borda */
+  border-radius: 5px; /* Arredonde as bordas */
+  cursor: pointer; /* Altere o cursor para indicar que é clicável */
+  transition: background-color 0.3s; /* Adicione uma transição suave */
+}
+
+.btn-voltar:hover {
+  background-color: #008EA3; /* Altere a cor de fundo ao passar o mouse */
 }

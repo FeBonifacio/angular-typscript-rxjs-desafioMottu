@@ -2,13 +2,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start; /* Para garantir que o conteúdo comece no topo */
   background-color: #1F1F1F;
+  min-height: 100vh; /* Para garantir que o corpo da página tenha no mínimo 100% da altura da viewport */
+  margin: 0;
 }
 
 .character {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-wrap: wrap; /* Adiciona quebra de linha para os itens */
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  align-items: flex-start; /* Alinha os itens ao topo */
 }
 
 .container-inicio {
@@ -67,19 +71,6 @@ h1 {
   height: auto; /* Mantém a proporção da imagem */
   border-radius: 12px 12px 0 0;
 }
-
-.btn-fav {
-  position: absolute; /* Posicionamento absoluto em relação ao contêiner pai */
-  top: 10px; /* Ajusta a distância do topo */
-  right: 10px; /* Ajusta a distância da direita */
-  padding: 5px 10px;
-  background-color: #fff;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: #0A0A0A;
-}
-
 .btn-fav:hover {
   height: 20px;
 }
@@ -98,4 +89,38 @@ h1 {
 .character-species {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+}
+
+.naoExiste{
+  margin: 50px;
+}
+.nao-um {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #fff;
+  align-items: center;
+}
+.nao-dois {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 27px;
+  color: #fff;
+  align-items: center;
+}
+.btn-fav {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.btn-fav.favorite {
+  color: black; /* Cor do ícone quando está nos favoritos */
 }
