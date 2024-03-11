@@ -1,1 +1,33 @@
-<p>favorito works!</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <title>RICK AND MORTY</title>
+</head>
+<body>
+  <div class="container-inicio">
+    <h1 class="container-inicio">FAVORITOS</h1>
+    <ng-template #favoritosList>
+      <div class="character-list">
+        <div class="character" *ngFor="let character of favoritos">
+          <img class="character-image" [src]="character.image" alt="{{ character.image }}" />
+          <div class="character-info">
+            <p class="character-name">{{ character.name }}</p>
+            <p class="character-species">{{ character.species}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-container *ngIf="favoritos.length === 0; else favoritosList">
+      <p>Parece que você ainda não tem favoritos.</p>
+      <p>Volte à página inicial e escolha os melhores para você.</p>
+      <button (click)="voltarInicio()">Voltar ao inicial</button>
+    </ng-container>
+  </div>
+</body>
+</html>

@@ -1,5 +1,8 @@
+// InicioComponent.ts
 import { Component, OnInit } from '@angular/core';
-import { RickAndMortyService, Character } from '../services/rick-and-morty.service'; // Importe o serviço e a interface Character
+import { RickAndMortyService, Character } from '../services/rick-and-morty.service';
+import { Router } from '@angular/router';
+import { FavoritosService } from '../services/favorite.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,15 +10,21 @@ import { RickAndMortyService, Character } from '../services/rick-and-morty.servi
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  characters: Character[] = []; // Definir uma propriedade para armazenar os personagens
-  searchText: string = '' // dfinir tbm prop de busca
-  naoExiste: boolean = false; // Defina uma propriedade para controlar a exibição da mensagem de aviso
+  characters: Character[] = [];
+  searchText: string = '';
+  naoExiste: boolean = false;
+  favoritos: Character[] = [];
+  contadorFavoritos: number = 0;
 
-
-  constructor(private rickAndMortyService: RickAndMortyService) { }
+  constructor(
+    private router: Router,
+    private rickAndMortyService: RickAndMortyService,
+    private favoritosService: FavoritosService
+  ) {}
 
   ngOnInit(): void {
-    this.loadCharacters(); // carregar os personagens ao inicializar o componente
+    this.loadCharacters();
+    this.loadFavoritos(); // Carregar os favoritos ao inicializar o componente
   }
 
   loadCharacters() {
@@ -29,33 +38,71 @@ export class InicioComponent implements OnInit {
     );
   }
 
-  //filtro
-  // Método para filtrar os personagens com base no texto de pesquisa
   filterCharacters() {
-    this.naoExiste = false; // Ocultar a mensagem de aviso inicialmente
+    this.naoExiste = false;
     if (this.searchText === '') {
-      this.loadCharacters(); // Carregar todos os personagens novamente
-      return; // Não precisa continuar o filtro
+      this.loadCharacters();
+      return;
     }
     const filteredCharacters = this.characters.filter(character =>
       character.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
     if (filteredCharacters.length === 0) {
-      this.naoExiste = true; // Exibir a mensagem de aviso se nenhum personagem for encontrado
+      this.naoExiste = true;
     }
-    this.characters = filteredCharacters; // Atualize os personagens filtrados
-}
-
-
-  onSearchInput(e: any) {
-    this.searchText = e.target.value; // Atualize o texto de pesquisa
-    this.filterCharacters(); // Filtrar os personagens
+    this.characters = filteredCharacters;
   }
 
-  //enter
+  onSearchInput(e: any) {
+    this.searchText = e.target.value;
+    this.filterCharacters();
+  }
+
   onSearchKey(e: KeyboardEvent) {
     if (e.key === 'Enter') {
       this.filterCharacters();
+    }
+  }
+
+  adicionarFav(character: Character) {
+    if (!this.isFavorito(character)) {
+      this.favoritos.push(character);
+      this.contadorFavoritos++;
+      this.favoritosService.setContadorFavoritos(this.contadorFavoritos); // Atualizar contador de favoritos
+      this.saveFavoritos(); // Salvar os favoritos atualizados no localStorage
+    }
+  }
+
+  removeFavorito(character: Character) {
+    const index = this.favoritos.indexOf(character);
+    if (index !== -1) {
+      this.favoritos.splice(index, 1);
+      this.contadorFavoritos = Math.max(0, this.contadorFavoritos - 1);
+      this.favoritosService.setContadorFavoritos(this.contadorFavoritos); // Atualizar contador de favoritos
+      this.saveFavoritos(); // Salvar os favoritos atualizados no localStorage
+    }
+  }
+
+
+  isFavorito(character: Character) {
+    return this.favoritos.includes(character);
+  }
+
+  telaFavoritos() {
+    this.router.navigate(['/favorito']); // Navegar para a tela de favoritos
+  }
+
+  // Método para salvar os favoritos no localStorage
+  private saveFavoritos() {
+    localStorage.setItem('favoritos', JSON.stringify(this.favoritos));
+  }
+
+  // Método para carregar os favoritos do localStorage
+  private loadFavoritos() {
+    const favoritosString = localStorage.getItem('favoritos');
+    if (favoritosString) {
+      this.favoritos = JSON.parse(favoritosString);
+      this.contadorFavoritos = this.favoritos.length; // Atualizar o contador de favoritos
     }
   }
 }

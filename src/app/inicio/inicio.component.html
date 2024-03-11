@@ -19,7 +19,7 @@
     <ul class="character-list">
       <li class="character-item" *ngFor="let character of characters">
         <img class="character-image" [src]="character.image" alt="{{ character.image }}" />
-        <button class="btn-fav">coração</button>
+        <button class="btn-fav" (click)="adicionarFav(character)">favorito</button>
         <div class="character-info">
           <p class="character-name">{{ character.name }}</p>
           <p class="character-species">{{ character.species}}</p>
