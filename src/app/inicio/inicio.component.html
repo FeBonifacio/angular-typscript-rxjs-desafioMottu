@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <title>RICK AND MORTY</title>
+</head>
+<body>
+  <div class="container-inicio">
+    <h1 class="container-inicio">Início</h1>
+    <input type="text" class="search-input" placeholder="Pesquisar..." (input)="onSearchInput($event)" (keypress)="onSearchKey($event)">
+  </div>
+
+  <div class="character">
+    <div class="naoExiste" *ngIf="characters.length === 0 && searchText !== ''">Nenhum personagem encontrado.</div>
+    <ul class="character-list">
+      <li class="character-item" *ngFor="let character of characters">
+        <img class="character-image" [src]="character.image" alt="{{ character.image }}" />
+        <button class="btn-fav">coração</button>
+        <div class="character-info">
+          <p class="character-name">{{ character.name }}</p>
+          <p class="character-species">{{ character.species}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

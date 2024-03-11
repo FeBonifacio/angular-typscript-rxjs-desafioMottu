@@ -6,13 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Buscando api</h1>
-  <ul>
-    <li *ngFor="let character of characters">
-      <img [src]="character.image" alt="{{ character.image }}" />
-      {{ character.name }}
-      {{ character.species}}
-    </li>
-  </ul>
+  <app-header></app-header> <!-- Aqui você adiciona o cabeçalho -->
+  <app-inicio></app-inicio>
 </body>
 </html>

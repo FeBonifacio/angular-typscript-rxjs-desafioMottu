@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-family: 'Creepster', cursive;
+}
+
+.nome-logo {
+  color: #00B5CC;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #B2DF28;
+  font-family:'Creepster', sans-serif ;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  margin-left: 10px; /* Ajuste conforme necessário */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.favorites-count {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(102, 101, 101);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  margin-left: 5px;
+}

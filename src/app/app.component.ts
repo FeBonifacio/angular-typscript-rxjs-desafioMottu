@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { RickAndMortyService } from "../services/rick-and-morty.service";
-import { Character } from "../services/rick-and-morty.service"; // Importe a interface Character aqui
+import { RickAndMortyService } from "./services/rick-and-morty.service";
+import { Character } from "./services/rick-and-morty.service"; // Importe a interface Character aqui
 
 @Component({
   selector: 'app-root',
-  templateUrl: '../app.component.html',
-  styleUrls: ['../app.component.css']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
