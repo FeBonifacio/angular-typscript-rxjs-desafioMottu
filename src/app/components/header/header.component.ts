@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FavoritosService } from '../../services/favorite.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
