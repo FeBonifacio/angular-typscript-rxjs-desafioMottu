@@ -35,8 +35,16 @@ export class HeaderComponent {
     }
   }
 
+  atualizarContador(valor: number) {
+    console.log('Valor recebido:', valor);
+    this.contadorFavorito += valor;
 
-  // navegarParaFavoritos() {
-  //   this.router.navigate(['/favoritos']);
-  // }
+    if (this.contadorFavorito < 0) {
+      this.contadorFavorito = 0;
+    }
+
+    if (this.contadorFavorito === 0) {
+      this.router.navigate(['/']); // Navegar para a página inicial
+    }
+  }
 }
