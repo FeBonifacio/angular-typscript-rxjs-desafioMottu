@@ -25,7 +25,7 @@ export class FavoritoComponent implements OnInit {
   }
 
   voltarInicio() {
-    this.router.navigate(['#']);
+    this.router.navigate(['']);
   }
 
   adicionarFav(character: Character) {
