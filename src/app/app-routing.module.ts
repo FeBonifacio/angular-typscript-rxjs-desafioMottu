@@ -4,7 +4,7 @@ import { InicioComponent } from './inicio/inicio.component'; // Importe o compon
 import { FavoritoComponent } from './favorito/favorito.component';
 
 const routes: Routes = [
-  {path: 'favorito', component: FavoritoComponent},
+  {path: 'favoritos', component: FavoritoComponent},
   { path: '#', component: InicioComponent}
 ];
 

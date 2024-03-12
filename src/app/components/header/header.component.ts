@@ -28,12 +28,14 @@ export class HeaderComponent {
       this.inicioSelecionado = true;
       this.favoritoSelecionado = false;
     } else {
-      this.favoritoSelecionado = true;
       this.inicioSelecionado = false;
+      this.favoritoSelecionado = true;
+      this.router.navigate(['/favoritos']);
     }
   }
 
-  navegarParaFavoritos() {
-    this.router.navigate(['/favoritos']);
-  }
+
+  // navegarParaFavoritos() {
+  //   this.router.navigate(['/favoritos']);
+  // }
 }

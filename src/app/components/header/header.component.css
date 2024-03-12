@@ -16,6 +16,8 @@
 
 .nav-container {
   display: flex;
+  border: 2px solid #fff;
+  border-radius: 5px;
 }
 
 .nav-item {
@@ -33,7 +35,7 @@
 }
 
 .nav-item svg path {
-  fill: #0A0A0A;
+  fill: gray;
 }
 
 .favorites-count {
